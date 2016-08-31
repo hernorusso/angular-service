@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Angular BE mocked</title>
+  <!--Styles-->
+  <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+  <!-- app scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-mocks.js"></script>
   <script src="app.module.js"></script>
@@ -12,8 +15,12 @@
 </head>
 <body ng-app="myAppE2E">
   <div ng-controller="MainCtrl as ctrl">
-    <button type="button" name="button" ng-click="ctrl.findserver()">GetServer</button>
-    {{server}}
+    <h1>Angular Service Demo</h1>
+    <h2>Available Server:</h2>
+    <div class="show-server">
+      <p>{{server}}</p>
+    </div>
+    <button type="button" name="button" ng-click="ctrl.findserver()">Get Server</button>
   </div>
 </body>
 </html>

@@ -22,10 +22,9 @@
         return $q.all(res.data.map(function(item){
           return $http.get(item.url);
         })).then(function(results){
-          console.log('results', results);
           var server = selectServer(results);
           if (server) {
-            dfd.resolve(server);
+            dfd.resolve(server.url);
           } else {
             dfd.reject(new Error('Not server avilable'));
           }
