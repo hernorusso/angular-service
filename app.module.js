@@ -1,37 +1,13 @@
 (function(angular) {
   'use strict';
   var myApp = angular.module('myApp', []);
-  
-  myApp.controller('MainCtrl', function MainCtrl(serverList, $scope) {
+
+  myApp.controller('MainCtrl', function MainCtrl(availableServer, $scope) {
     var vm = this;
     vm.findserver = function() {
-      serverList.findServer().then(function(server){
-        $scope.availableServer = server;
+      availableServer.findServer().then(function(server){
+        $scope.server = server;
       });
     };
   });
 })(window.angular);
-// myApp.controller('MainCtrl', function MainCtrl($http) {
-//   var ctrl = this;
-// 
-//   ctrl.phones = [];
-//   ctrl.newPhone = {
-//     name: ''
-//   };
-// 
-//   ctrl.getPhones = function() {
-//     $http.get('/phones').then(function(response) {
-//       ctrl.phones = response.data;
-//     });
-//   };
-// 
-//   ctrl.addPhone = function(phone) {
-//     $http.post('/phones', phone).then(function() {
-//       ctrl.newPhone = {name: ''};
-//       return ctrl.getPhones();
-//     });
-//   };
-// 
-//   ctrl.getPhones();
-// });
-// })(window.angular);

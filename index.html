@@ -2,31 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Example - example-httpbackend-e2e-testing-production</title>
-  
-
+  <title>Angular BE mocked</title>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-mocks.js"></script>
   <script src="app.module.js"></script>
   <script src="be.module.js"></script>
   <!-- <script src="myController.controller.js"></script> -->
   <script src="serverList.service.js"></script>
-  
-
-  
 </head>
 <body ng-app="myAppE2E">
   <div ng-controller="MainCtrl as ctrl">
     <button type="button" name="button" ng-click="ctrl.findserver()">GetServer</button>
-    {{availableServer}}
-<!-- <form name="newPhoneForm" ng-submit="ctrl.addPhone($ctrl.newPhone)">
-  <input type="text" ng-model="$ctrl.newPhone.name">
-  <input type="submit" value="Add Phone">
-</form>
-<h1>Phones</h1>
-<ul>
-  <li ng-repeat="phone in $ctrl.phones">{{phone.name}}</li>
-</ul> -->
-</div>
+    {{server}}
+  </div>
 </body>
 </html>
