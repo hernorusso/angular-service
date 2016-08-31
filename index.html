@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <title>Angular BE mocked</title>
   <!--Styles-->
-  <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="src/client/css/style.css" media="screen" title="no title" charset="utf-8">
   <!-- app scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-mocks.js"></script>
-  <script src="app.module.js"></script>
-  <script src="be.module.js"></script>
-  <script src="MainController.controller.js"></script>
-  <script src="serverList.service.js"></script>
+  <script src="src/client/app.module.js"></script>
+  <script src="src/server/be.module.js"></script>
+  <script src="src/client/MainController.controller.js"></script>
+  <script src="src/client/services/serverList.service.js"></script>
 </head>
 <body ng-app="myAppE2E">
   <div ng-controller="MainController as ctrl">
