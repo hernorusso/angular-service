@@ -1,4 +1,4 @@
-(function() {
+(function(angular) {
   'use strict';
 
   angular
@@ -56,4 +56,4 @@
       return selectedServer;
     }
   }
-})();
+})(window.angular);

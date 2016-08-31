@@ -10,15 +10,15 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-mocks.js"></script>
   <script src="app.module.js"></script>
   <script src="be.module.js"></script>
-  <!-- <script src="myController.controller.js"></script> -->
+  <script src="MainController.controller.js"></script>
   <script src="serverList.service.js"></script>
 </head>
 <body ng-app="myAppE2E">
-  <div ng-controller="MainCtrl as ctrl">
+  <div ng-controller="MainController as ctrl">
     <h1>Angular Service Demo</h1>
     <h2>Available Server:</h2>
     <div class="show-server">
-      <p>{{server}}</p>
+      <p>{{ctrl.server}}</p>
     </div>
     <button type="button" name="button" ng-click="ctrl.findserver()">Get Server</button>
   </div>
