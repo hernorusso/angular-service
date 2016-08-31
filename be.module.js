@@ -6,18 +6,18 @@
     //mocked back end servers
     var servers = [
       {
-        "url": "/boldtech-one.co",
+        "url": "http://boldtech-one.co",
         "priority": 1
       },
       {
-        "url": "/boldtech.co",
+        "url": "http://boldtech.co",
         "priority": 7
       }, {
-        "url": "/offline.boldtech.co",
+        "url": "http://offline.boldtech.co",
         "priority": 2
       },
       {
-        "url": "/boldcommunity.com",
+        "url": "http://boldcommunity.com",
         "priority": 4
       }];
 
@@ -25,10 +25,10 @@
       $httpBackend.whenGET('/servers').respond(servers);
 
       // servers mocked endpoints
-      $httpBackend.whenGET('/boldtech-one.co').respond(servers[0]);
-      $httpBackend.whenGET('/boldtech.co').respond(servers[1]);
-      $httpBackend.whenGET('/boldcommunity.com').respond(servers[3]);
-      $httpBackend.whenGET('/offline.boldtech.co').respond(servers[2]);
+      $httpBackend.whenGET('http://boldtech-one.co').respond(servers[0]);
+      $httpBackend.whenGET('http://boldtech.co').respond(servers[1]);
+      $httpBackend.whenGET('http://boldcommunity.com').respond(servers[3]);
+      $httpBackend.whenGET('http://offline.boldtech.co').respond(servers[2]);
 
     });
   })(window.angular);
