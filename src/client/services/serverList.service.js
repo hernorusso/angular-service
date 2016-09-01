@@ -16,11 +16,17 @@
     return service;
 
     // public methods
+    /**
+     * Find abailable server
+     * @returns {Promise | String}  Promise is returned, then resolved with the name of selected server
+     */
     function findServer() {
       var dfd = $q.defer();
       getAllServers().then(function(res){
         return $q.all(res.data.map(function(item){
-          return $http.get(item.url);
+          return $http.get(item.url, {
+            timeout: 5000
+          });
         })).then(function(results){
           var server = selectServer(results);
           if (server) {
@@ -28,18 +34,27 @@
           } else {
             dfd.reject(new Error('Not server avilable'));
           }
-        })
+        });
       });
       return dfd.promise;
     }
 
     // private methods
+
+    /**
+     * Get a list of servers to check availability
+     * @returns {Array}  Array containing servers, url
+     */
     function getAllServers() {
       return $http.get('/servers');
     }
 
+    /**
+     * Select lowest priority server from available ones
+     * @param {Array} servers - An array of available servers
+     * @returns {Object} Object constaining selected server information
+     */
     function selectServer(servers){
-      //iterate, check promise, select priority
       var selectedServer = false,
         availableServers = [];
 
