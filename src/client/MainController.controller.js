@@ -10,6 +10,11 @@
   /* @ngInject */
   function MainController(availableServer, $scope) {
     var vm = this;
+
+    /**
+     * Get Available server, with lowest priority
+     * @returns {String} The server url.
+     */
     vm.findserver = function() {
       availableServer.findServer().then(function(server){
         vm.server = server;
