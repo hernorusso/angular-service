@@ -5,10 +5,10 @@
     .module('myApp')
     .controller('MainController', MainController);
 
-  MainController.$inject = ['availableServer', '$scope'];
+  MainController.$inject = ['availableServer'];
 
   /* @ngInject */
-  function MainController(availableServer, $scope) {
+  function MainController(availableServer) {
     var vm = this;
 
     /**

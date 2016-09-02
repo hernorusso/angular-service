@@ -1,5 +1,5 @@
 describe('Unit: MainController', function(){
-var scope;  
+var vm;  
   // var availableServerFactory = function($provide) {
   //   $provide.factory('availableServer', ['$q', function($q){
   //     var service = {
@@ -32,15 +32,14 @@ var scope;
   //     };
   //   }]);
   // }));
-  beforeEach(inject( function($controller, $rootScope){
-    scope = $rootScope.$new();
-    $controller('MainController as vm', {$scope: scope});
+  beforeEach(inject( function($controller){
+    vm = $controller('MainController');
   }));
   
   it('should have vm.findServer function defined', function () {
       // mainController.findServer();
       // expect(availableServer.findServer).toHaveBeenCalled();
-      expect(scope.vm.findServer).toBeDefined();
+      expect(vm.findServer).toBeDefined();
       
       // expect(ctrl.server).toEqual('http://testServer.com');
   });
