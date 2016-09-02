@@ -1,5 +1,6 @@
+'use strict';
 describe('Unit: MainController', function(){
-
+  // setup scope variables
   var vm, availableServerMock, passPromise, scope,
     successMsg = 'http://test-server.com',
     rejectMsg = 'No available server';
