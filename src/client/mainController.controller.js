@@ -16,9 +16,13 @@
      * @returns {String} The server url.
      */
     vm.findServer = function() {
-      availableServer.findServer().then(function(server){
-        vm.server = server;
-      });
+      availableServer.findServer().
+        then(function(server){
+          vm.server = server;
+        }).
+        catch(function(reason){
+          vm.server = reason;
+        });
     };
   }
 })(window.angular);
