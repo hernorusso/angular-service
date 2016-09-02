@@ -1,7 +1,7 @@
 'use strict';
 describe('Unit: serverList service', function(){
   // scope variables:
-  var $httpBackend, scope, $rootScope, availableServer, serversEndPoint, returnedValue;
+  var $httpBackend, scope, $rootScope, availableServer, serversEndPoint, promise;
 
   // mocked server list
   var servers = [
@@ -32,7 +32,7 @@ describe('Unit: serverList service', function(){
     $httpBackend = $injector.get('$httpBackend');
 
     // inject rootscope for triggering digest() cicle
-    //  $rootScope = $injector.get('$rootScope');
+    $rootScope = $injector.get('$rootScope');
 
     // define back end responses
     serversEndPoint = $httpBackend.when('GET', 'http://boldtech-one.co').respond(servers);
@@ -41,12 +41,12 @@ describe('Unit: serverList service', function(){
     availableServer = $injector.get('availableServer');
 
     // invoke service
-    returnedValue = availableServer.findServer();
+    promise = availableServer.findServer();
   }));
 
   // check that there is no pending resquest / expectations
   afterEach(function() {
-     $httpBackend.verifyNoOutstandingExpectation();
+     $httpBackend.verifyNoOutstandingExpectation(false);
      $httpBackend.verifyNoOutstandingRequest();
    });
 
@@ -62,23 +62,19 @@ describe('Unit: serverList service', function(){
     $httpBackend.flush();
   });
 
-  // it('should return the lowest priority server', function(done){
-  //   availableServer.findServer().then(function(res){
-  //     expect(res).toBe('http://boldtech-one.co');
-  //     // done();
-  //   });
-  //   $httpBackend.when('GET', '/servers').respond(servers);
-  //   $httpBackend.flush();
-  //   $rootScope.$digest();
-  //   // $httpBackend.expect('GET', 'http://boldtech-one.co').respond(servers);
-  //   // $httpBackend.flush();
-  //   // returnedValue.then(function(res){
-  //   //   expect(res).toBe('http://boldtech-one.co');
-  //   //   done();
-  //   // });
-  //   // scope.$digest();
-  //   // expect(returnedValue).toBe('http://boldtech-one.co');
-  // });
+  it('should return the lowest priority server', function(done){
+    scope = $rootScope.$new();
+    $httpBackend.when('GET', '/servers').respond(servers);
+    $httpBackend.expect('GET', 'http://boldtech-one.co').respond(servers[0]);
+    $httpBackend.flush();
+    promise.
+      then(function(server){
+        expect(server).toBe('http://boldtech-one.co');
+        done();
+        console.log(server, 'test');
+      });
+    scope.$apply();
+  });
 
   it('should process rejects', function(){
     $httpBackend.expect('GET', '/servers').respond(servers);
