@@ -1,1 +1,5 @@
+# ignore lint configuration
 .jshintrc
+
+# ignore node_modules
+/node_modules
