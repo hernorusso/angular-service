@@ -21,7 +21,8 @@ module.exports = function (config) {
             './src/server/be.module.js',
             './src/client/mainController.controller.js',
             './src/client/services/serverList.service.js',
-            './src/client/mainController.controller.spec.js'
+            './src/client/mainController.controller.spec.js',
+            './src/client/services/serverList.service.spec.js'
         ],
 
         // list of files to exclude
