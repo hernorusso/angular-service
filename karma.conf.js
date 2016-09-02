@@ -1,6 +1,5 @@
 // Karma configuration
-// Generated on Sat Nov 08 2014 19:20:47 GMT-0700 (MST)
-
+'use strict';
 module.exports = function (config) {
     config.set({
 
@@ -20,9 +19,9 @@ module.exports = function (config) {
             './src/client/app.module.js',
             './src/server/be.module.js',
             './src/client/mainController.controller.js',
-            './src/client/services/serverList.service.js',
+            './src/client/services/availableServer.service.js',
             './src/client/mainController.controller.spec.js',
-            './src/client/services/serverList.service.spec.js'
+            './src/client/services/availableServer.service.spec.js'
         ],
 
         // list of files to exclude
