@@ -15,7 +15,7 @@
      * Get Available server, with lowest priority
      * @returns {String} The server url.
      */
-    vm.findserver = function() {
+    vm.findServer = function() {
       availableServer.findServer().then(function(server){
         vm.server = server;
       });
